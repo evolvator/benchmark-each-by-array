@@ -14,6 +14,12 @@ async.timesSeries(
     var array = _.times(count, function(t) {
       return t;
     });
+    
+    var callbackSync = function(value, index) { value; };
+    var callbackAsync = function(value, index, next) {
+      value;
+      next();
+    };
 
     suite.add('for', function() {
       for (var i = 0; i < count; i++) {
@@ -38,36 +44,22 @@ async.timesSeries(
       }
     });
     suite.add('forEach', function() {
-      array.forEach(function(value, index) {
-        value;
-      });
+      array.forEach(callbackSync);
     });
     suite.add('lodash@4.17.10 forEach', function() {
-      _.forEach(array, function(value, index) {
-        value;
-      });
+      _.forEach(array, callbackSync);
     });
     suite.add('async@2.6.1 forEachOf', function() {
-      async.forEachOf(array, function(value, index, next) {
-        value;
-        next();
-      });
+      async.forEachOf(array, callbackAsync);
     });
     suite.add('async@2.6.1 forEachOfSeries', function() {
-      async.forEachOfSeries(array, function(value, index, next) {
-        value;
-        next();
-      });
+      async.forEachOfSeries(array, callbackAsync);
     });
     suite.add('foreach@2.0.5', function() {
-      foreach(array, function(value, index) {
-        value;
-      });
+      foreach(array, callbackSync);
     });
     suite.add('array-each@1.0.1', function() {
-      arrayEach(array, function(value, index) {
-        value;
-      });
+      arrayEach(array, callbackSync);
     });
 
     tb.wrapSuite(suite, () => next());
