@@ -26,6 +26,14 @@ async.timesSeries(
         array[i];
       };
     });
+    var forFunctionalWrapped = function(array, callback) {
+      for (var i = 0; i < count; i++) {
+        callback(array[i]);
+      };
+    };
+    suite.add('for functional wrapped', function() {
+      forFunctionalWrapped(array, function() {});
+    });
     suite.add('while', function() {
       var i = 0;
       while (i < count) {
