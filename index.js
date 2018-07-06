@@ -34,6 +34,12 @@ async.timesSeries(
     suite.add('for functional wrapped', function() {
       forFunctionalWrapped(array, function() {});
     });
+    
+    var evalFor;
+    eval(`evalFor = (array) => { for (var i = 0; i < count; i++) { array[i]; } };`);
+    suite.add('evalFor', function() {
+      evalFor(array);
+    });
     suite.add('while', function() {
       var i = 0;
       while (i < count) {
