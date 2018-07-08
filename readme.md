@@ -2,7 +2,7 @@
 
 What's the fastest way to each by array?
 
-[![Build Status](https://travis-ci.org/evolvator/benchmark-each-by-array.svg?branch=master)](https://travis-ci.org/evolvator/benchmark-each-by-array)
+[![Build Status](https://travis-ci.org/evolvator/benchmark-each-by-array.svg?branch=code)](https://travis-ci.org/evolvator/benchmark-each-by-array)
 
 [Executable code](https://github.com/evolvator/benchmark-each-by-array/tree/code)
 
